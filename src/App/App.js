@@ -4,6 +4,7 @@ import firebase from 'firebase/app';
 import firebaseConnection from '../helpers/data/connection';
 import Auth from '../components/Auth/Auth';
 import MyNavbar from '../components/MyNavbar/MyNavbar';
+import Team from '../components/Team/Team';
 
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +19,7 @@ class App extends React.Component {
   componentDidMount() {
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.state({ authed: true });
+        this.setState({ authed: true });
       } else {
         this.setState({ authed: false });
       }
@@ -37,7 +38,7 @@ class App extends React.Component {
         <MyNavbar authed={authed} />
         {
           (!authed) ? (<Auth />)
-            : ''
+            : (<Team />)
         }
       </div>
     );
