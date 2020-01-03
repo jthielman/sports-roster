@@ -1,0 +1,26 @@
+{ 
+  "player1": {
+    "imageUrl": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-the-it-crowd-chris-odowd.jpg",
+    "name": "Roy Trenneman",
+    "position": "Window cleaner",
+    "uid": "uaDUUf8b2Bf7wQeomuE3WG4KO2s2"
+  },
+  "player2": {
+    "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2Fbritishcomedy%2Fstatus%2F820009775928922114&psig=AOvVaw2EHZ2SwJhcR1-94xF8Ra5t&ust=1578176183394000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOiH1vC66OYCFQAAAAAdAAAAABAS",
+    "name": "Maurice Moss",
+    "position": "Solderer of Fortune",
+    "uid": "uaDUUf8b2Bf7wQeomuE3WG4KO2s2"
+  },
+  "player3": {
+    "imageUrl": "https://static.tvtropes.org/pmwiki/pub/images/jenit_545.jpg",
+    "name": "Jen Barber",
+    "position": "Nerd Wrangler",
+    "uid": "uaDUUf8b2Bf7wQeomuE3WG4KO2s2"
+  },
+  "player4": {
+    "imageUrl": "https://vignette.wikia.nocookie.net/theitcrowd/images/f/f0/Denholm_shock.jpg/revision/latest?cb=20100425163127",
+    "name": "Denholm Reynholm",
+    "position": "Stress Warrior",
+    "uid": "12345"
+  }
+}
