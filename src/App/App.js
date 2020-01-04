@@ -7,7 +7,6 @@ import MyNavbar from '../components/MyNavbar/MyNavbar';
 import Team from '../components/Team/Team';
 
 import './App.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 firebaseConnection.firebaseApp();
 
