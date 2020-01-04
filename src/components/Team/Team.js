@@ -13,7 +13,6 @@ class Team extends React.Component {
   getPlayers = () => {
     playerData.getPlayersByUid(authData.getUid())
       .then((players) => {
-        console.log(players);
         this.setState({ players });
       })
       .catch((errFromTeam) => console.error(errFromTeam));
@@ -25,9 +24,10 @@ class Team extends React.Component {
 
   render() {
     return (
-      <div className='Team'>
-        If you can't work as a team, you're all fired!
-        { this.state.players.map((player) => <Player key={player.id} player={player} />) }
+      <div className='container'>
+        <div className='Team row'>
+          { this.state.players.map((player) => <Player key={player.id} player={player} />) }
+        </div>
       </div>
     );
   }

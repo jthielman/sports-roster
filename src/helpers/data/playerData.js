@@ -15,7 +15,6 @@ const getPlayersByUid = (uid) => new Promise((resolve, reject) => {
           players.push(newPlayer);
         });
       }
-      console.log(players);
       resolve(players);
     })
     .catch((err) => reject(err));

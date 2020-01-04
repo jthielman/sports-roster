@@ -10,7 +10,15 @@ class Player extends React.Component {
   render() {
     const { player } = this.props;
     return (
-    <div>{player.id}</div>
+    <div className="col">
+      <div className="card">
+        <img src={player.imageUrl} className="card-img-top" alt={player.name} />
+        <div className="card-body">
+          <h5 className="card-title">{player.name}</h5>
+          <p className="card-text">{player.position}</p>
+        </div>
+      </div>
+    </div>
     );
   }
 }
