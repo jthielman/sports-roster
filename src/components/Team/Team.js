@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Player from '../Player/Player';
+
 import playerData from '../../helpers/data/playerData';
 import authData from '../../helpers/data/authData';
 
@@ -11,6 +13,7 @@ class Team extends React.Component {
   getPlayers = () => {
     playerData.getPlayersByUid(authData.getUid())
       .then((players) => {
+        console.log(players);
         this.setState({ players });
       })
       .catch((errFromTeam) => console.error(errFromTeam));
@@ -22,7 +25,10 @@ class Team extends React.Component {
 
   render() {
     return (
-      <div className='Team'>If you can't work as a team, you're all fired!</div>
+      <div className='Team'>
+        If you can't work as a team, you're all fired!
+        { this.state.players.map((player) => <Player key={player.id} player={player} />) }
+      </div>
     );
   }
 }
