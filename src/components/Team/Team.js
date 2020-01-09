@@ -9,6 +9,8 @@ import authData from '../../helpers/data/authData';
 class Team extends React.Component {
   state = {
     players: [],
+    editMode: false,
+    playerToEdit: {},
     showPlayerForm: false,
   }
 
@@ -33,6 +35,23 @@ class Team extends React.Component {
       .catch((errFromSavePlayer) => console.error(errFromSavePlayer));
   }
 
+  updatePlayer = (playerId, updatedPlayer) => {
+    playerData.updatePlayer(playerId, updatedPlayer)
+      .then(() => {
+        this.getPlayers();
+        this.setState({ editMode: false, showPlayerForm: false });
+      })
+      .catch((err) => console.error('error from update player', err));
+  }
+
+  setEditMode = (editMode) => {
+    this.setState({ editMode, showPlayerForm: true });
+  }
+
+  setPlayerToEdit = (player) => {
+    this.setState({ playerToEdit: player });
+  }
+
   setShowPlayerForm = () => {
     this.setState({ showPlayerForm: true });
   }
@@ -41,9 +60,9 @@ class Team extends React.Component {
     return (
       <div className='container'>
         <button className="btn btn-light" onClick={this.setShowPlayerForm}>Add a new Player</button>
-        { this.state.showPlayerForm && <PlayerForm addPlayer={this.addPlayer} />}
+        { this.state.showPlayerForm && <PlayerForm addPlayer={this.addPlayer} editMode={this.state.editMode} playerToEdit={this.state.playerToEdit} updatePlayer={this.updatePlayer} />}
         <div className='Team row'>
-          { this.state.players.map((player) => <Player key={player.id} player={player} />) }
+          { this.state.players.map((player) => <Player key={player.id} player={player} setEditMode={this.setEditMode} setPlayerToEdit={this.setPlayerToEdit} />) }
         </div>
       </div>
     );
