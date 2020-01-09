@@ -2,17 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import authData from '../../helpers/data/authData';
+import playerShape from '../../helpers/propz/playerShape';
 // import playerShape from '../../helpers/propz/playerShape';
 
 class PlayerForm extends React.Component {
   static propTypes = {
-    addBoard: PropTypes.func,
+    addPlayer: PropTypes.func,
+    playerToEdit: playerShape.playerShape,
+    editMode: PropTypes.bool,
+    updatePlayer: PropTypes.func,
   }
 
   state = {
     playerImageUrl: '',
     playerName: '',
     playerPosition: '',
+  }
+
+  componentDidMount() {
+    const { playerToEdit, editMode } = this.props;
+    if (editMode) {
+      this.setState({ playerImageUrl: playerToEdit.imageUrl, playerName: playerToEdit.name, playerPosition: playerToEdit.position });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { playerToEdit } = this.props;
+    if ((prevProps.playerToEdit.id !== playerToEdit.id) && this.props.editMode) {
+      this.setState({ playerImageUrl: playerToEdit.imageUrl, playerName: playerToEdit.name, playerPosition: playerToEdit.position });
+    }
   }
 
   savePlayerEvent = (e) => {
@@ -26,6 +44,18 @@ class PlayerForm extends React.Component {
     };
     addPlayer(newPlayer);
     this.setState({ playerImageUrl: '', playerName: '', playerPosition: '' });
+  }
+
+  updatePlayerEvent = (e) => {
+    e.preventDefault();
+    const { updatePlayer, playerToEdit } = this.props;
+    const updatedPlayer = {
+      imageUrl: this.state.playerImageUrl,
+      name: this.state.playerName,
+      position: this.state.playerPosition,
+      uid: playerToEdit.uid,
+    };
+    updatePlayer(playerToEdit.id, updatedPlayer);
   }
 
   urlChange = (e) => {
@@ -44,6 +74,8 @@ class PlayerForm extends React.Component {
   }
 
   render() {
+    const { editMode } = this.props;
+
     return (
       <form className='col-6 offset-3 PlayerForm'>
         <div className="form-group">
@@ -79,7 +111,10 @@ class PlayerForm extends React.Component {
             onChange={this.positionChange}
           />
         </div>
-        <button className="btn btn-secondary" onClick={this.savePlayerEvent}>Save Player</button>
+        {
+          (editMode) ? (<button className="btn btn-warning" onClick={this.updatePlayerEvent}>Update Player</button>)
+            : (<button className="btn btn-secondary" onClick={this.savePlayerEvent}>Save Player</button>)
+        }
       </form>
     );
   }
