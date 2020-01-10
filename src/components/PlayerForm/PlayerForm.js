@@ -11,6 +11,7 @@ class PlayerForm extends React.Component {
     playerToEdit: playerShape.playerShape,
     editMode: PropTypes.bool,
     updatePlayer: PropTypes.func,
+    hideForm: PropTypes.func,
   }
 
   state = {
@@ -58,6 +59,10 @@ class PlayerForm extends React.Component {
     updatePlayer(playerToEdit.id, updatedPlayer);
   }
 
+  hideFormEvent = (e) => {
+    this.props.hideForm();
+  }
+
   urlChange = (e) => {
     e.preventDefault();
     this.setState({ playerImageUrl: e.target.value });
@@ -90,7 +95,7 @@ class PlayerForm extends React.Component {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="player-name">Board Name:</label>
+          <label htmlFor="player-name">Player Name:</label>
           <input
             type="text"
             className="form-control"
@@ -115,6 +120,7 @@ class PlayerForm extends React.Component {
           (editMode) ? (<button className="btn btn-warning" onClick={this.updatePlayerEvent}>Update Player</button>)
             : (<button className="btn btn-secondary" onClick={this.savePlayerEvent}>Save Player</button>)
         }
+        <button className="btn btn-outline-dark" onClick={this.hideForm}>Never mind</button>
       </form>
     );
   }
