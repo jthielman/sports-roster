@@ -56,13 +56,25 @@ class Team extends React.Component {
     this.setState({ showPlayerForm: true });
   }
 
+  deletePlayer = (playerId) => {
+    playerData.deletePlayer(playerId)
+      .then(() => {
+        this.getPlayers();
+      })
+      .catch((err) => console.error('error from deletePlayer', err));
+  }
+
+  hideForm = () => {
+    this.setState({ showPlayerForm: false });
+  }
+
   render() {
     return (
       <div className='container'>
         <button className="btn btn-light" onClick={this.setShowPlayerForm}>Add a new Player</button>
-        { this.state.showPlayerForm && <PlayerForm addPlayer={this.addPlayer} editMode={this.state.editMode} playerToEdit={this.state.playerToEdit} updatePlayer={this.updatePlayer} />}
+        { this.state.showPlayerForm && <PlayerForm addPlayer={this.addPlayer} editMode={this.state.editMode} playerToEdit={this.state.playerToEdit} updatePlayer={this.updatePlayer} hideForm={this.hideForm} />}
         <div className='Team row'>
-          { this.state.players.map((player) => <Player key={player.id} player={player} setEditMode={this.setEditMode} setPlayerToEdit={this.setPlayerToEdit} />) }
+          { this.state.players.map((player) => <Player key={player.id} player={player} setEditMode={this.setEditMode} setPlayerToEdit={this.setPlayerToEdit} deletePlayer={this.deletePlayer} />) }
         </div>
       </div>
     );
