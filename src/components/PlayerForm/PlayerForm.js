@@ -120,7 +120,7 @@ class PlayerForm extends React.Component {
           (editMode) ? (<button className="btn btn-warning" onClick={this.updatePlayerEvent}>Update Player</button>)
             : (<button className="btn btn-secondary" onClick={this.savePlayerEvent}>Save Player</button>)
         }
-        <button className="btn btn-outline-dark" onClick={this.hideForm}>Cancel</button>
+        <button className="btn btn-outline-dark" onClick={this.hideForm}>Never mind</button>
       </form>
     );
   }
