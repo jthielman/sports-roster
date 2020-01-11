@@ -1,68 +1,30 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Sports Roster
 
-In the project directory, you can run:
+## Description
+This app shows cards with the names and pictures of the players on a user's roster.  Users must first log in with Google, but then they may add players (with picture, name and position), see their roster, update player info and even delete players.  The assignment called for a _sports_ roster, but since I am much more like a standard nerd, I figured I'd gather some company.  A user may choose sportlers instead of fictional IT professionals, if desired, since users can only see their own players, not those of other users.
 
-### `npm start`
+## Screenshots
+Before logging in:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Logged-out View](https://raw.githubusercontent.com/jthielman/sports-roster/master/screenshots/logged_out_view.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Logged in with players added to roster:
 
-### `npm test`
+![Roster view](https://raw.githubusercontent.com/jthielman/sports-roster/master/screenshots/roster_view.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The form to add a new player:
 
-### `npm run build`
+![New Player Form](https://raw.githubusercontent.com/jthielman/sports-roster/master/screenshots/new_player_form.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The form while editing a player:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![Edit Player Form](https://raw.githubusercontent.com/jthielman/sports-roster/master/screenshots/edit_player_form.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## How to Run
+- Clone down this project
+- At the root of this project run the following command: `npm install`
+- You will need to set up a firebase project with a reatime database and add the api keys of that database to a file in this project called `src/helpers/apiKeys.json`, using the example of `src/helpers/apiKeys.example.json`.
+- Then run this command: `npm start`
+- A window or tab should automatically open in your browser.
